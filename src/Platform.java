@@ -6,9 +6,14 @@ import java.util.Random;
 
 public class Platform extends JPanel implements MouseListener {
     Random bomb = new Random();
+    int [] sel = new int[10];
     Tiles[][] tiles = new Tiles[8][8];
     int i=0;
+    int bombI=0;
+    int bombJ=0;
+    Label go = new Label();
     Platform(){
+
         bomb.nextInt(0,63);
         setLayout(new GridLayout(8,8));
         setSize(400,400);
@@ -20,6 +25,22 @@ public class Platform extends JPanel implements MouseListener {
                 tiles[i][j].addMouseListener(this);
             }
         }
+
+        for (int j = 0; j <10 ; j++) {
+            go:
+            {
+                bombI = bomb.nextInt(0, 7);
+                bombJ = bomb.nextInt(0, 7);
+                if (tiles[bombI][bombJ].isBomb() == 0) {
+                    tiles[bombI][bombJ].makeBomb();
+                    System.out.println(bombI+" "+bombJ);
+                } else
+                {
+                    break go;
+                }
+            }
+
+        }
     }
 
     @Override
@@ -27,7 +48,8 @@ public class Platform extends JPanel implements MouseListener {
         for (i=0;i<8;i++){
             for (int j = 0; j < 8; j++) {
                 if (tiles[i][j] == e.getSource()) {
-                    tiles[i][j].setBackground(Color.green);
+                    tiles[i][j].boom();
+                    System.out.println("blast");
                 }
             }
         }
