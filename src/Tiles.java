@@ -2,7 +2,7 @@ import javax.swing.*;
 import java.awt.*;
 
 public class Tiles extends JPanel {
-    int isBomb=0;
+    Boolean isBomb=false;
     Tiles(int n){
         setSize(80,80);
         if (n%2==0){
@@ -14,7 +14,7 @@ public class Tiles extends JPanel {
         setBorder(BorderFactory.createLineBorder(Color.white));
     }
     void boom(){
-        if (isBomb==1){
+        if (isBomb){
             setBackground(Color.red);
         }
         else {
@@ -22,9 +22,9 @@ public class Tiles extends JPanel {
         }
     }
     void makeBomb(){
-        isBomb=1;
+        isBomb=true;
     }
-    int isBomb(){
+    Boolean isBomb(){
         return isBomb;
     }
 }
