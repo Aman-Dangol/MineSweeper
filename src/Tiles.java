@@ -13,12 +13,14 @@ public class Tiles extends JPanel {
         }
         setBorder(BorderFactory.createLineBorder(Color.white));
     }
-    void boom(){
+    Boolean boom(){
         if (isBomb){
             setBackground(Color.red);
+            return true;
         }
         else {
             setBackground(Color.green);
+            return false;
         }
     }
     void makeBomb(){

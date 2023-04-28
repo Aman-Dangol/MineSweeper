@@ -10,6 +10,7 @@ public class Platform extends JPanel implements MouseListener {
     int i=0;
     int bombI=0;
     int bombJ=0;
+    Boolean triggered = false;
     Platform(){
 
         bomb.nextInt(0,63);
@@ -49,10 +50,22 @@ public class Platform extends JPanel implements MouseListener {
         for (i=0;i<8;i++){
             for (int j = 0; j < 8; j++) {
                 if (tiles[i][j] == e.getSource()) {
-                    tiles[i][j].boom();
+                   triggered= tiles[i][j].boom();
+                   if (triggered=true){
+                       blastAll();
+
+                   }
                 }
             }
         }
+        }
+        void blastAll(){
+            for (int i = 0; i < 8; i++) {
+                for (int j = 0; j < 8; j++) {
+                    tiles[i][j].boom();
+                }
+
+            }
         }
 
     @Override
