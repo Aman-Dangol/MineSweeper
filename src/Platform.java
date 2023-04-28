@@ -27,8 +27,6 @@ public class Platform extends JPanel implements MouseListener {
         createBomb();
     }
     void  createBomb(){
-
-
         for (int j = 0; j <10 ; j++) {
             go:
             {
@@ -47,11 +45,12 @@ public class Platform extends JPanel implements MouseListener {
     }
     @Override
     public void mouseClicked(MouseEvent e) {
+        System.out.println("clicking");
         for (i=0;i<8;i++){
             for (int j = 0; j < 8; j++) {
                 if (tiles[i][j] == e.getSource()) {
                    triggered= tiles[i][j].boom();
-                   if (triggered=true){
+                   if (triggered==true){
                        blastAll();
 
                    }
@@ -63,6 +62,7 @@ public class Platform extends JPanel implements MouseListener {
             for (int i = 0; i < 8; i++) {
                 for (int j = 0; j < 8; j++) {
                     tiles[i][j].boom();
+
                 }
 
             }
