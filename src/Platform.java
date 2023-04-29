@@ -7,7 +7,7 @@ import java.util.Random;
 public class Platform extends JPanel implements MouseListener {
     Random bomb = new Random();
     Tiles[][] tiles = new Tiles[8][8];
-    int i=0;
+    int countBomb=0;
     int bombI=0;
     int bombJ=0;
     Boolean triggered = false;
@@ -16,7 +16,7 @@ public class Platform extends JPanel implements MouseListener {
         bomb.nextInt(0,63);
         setLayout(new GridLayout(8,8));
         setSize(400,400);
-        for ( i = 0; i < 8; i++) {
+        for ( int i = 0; i < 8; i++) {
             for (int j = 0; j < 8; j++) {
 
                 tiles[i][j] = new Tiles(i);
@@ -27,26 +27,22 @@ public class Platform extends JPanel implements MouseListener {
         createBomb();
     }
     void  createBomb(){
-        for (int j = 0; j <10 ; j++) {
-            go:
+        while (countBomb < 10) {
             {
                 bombI = bomb.nextInt(0, 7);
                 bombJ = bomb.nextInt(0, 7);
                 if (tiles[bombI][bombJ].isBomb()==false) {
                     tiles[bombI][bombJ].makeBomb();
-                    System.out.println(bombI+" "+bombJ);
-                } else
-                {
-                    break go;
+                    System.out.println("bomb no "+countBomb+" : "+bombI+" "+bombJ);
+                    countBomb++;
                 }
             }
-
         }
     }
     @Override
     public void mouseClicked(MouseEvent e) {
         System.out.println("clicking");
-        for (i=0;i<8;i++){
+        for (int i=0;i<8;i++){
             for (int j = 0; j < 8; j++) {
                 if (tiles[i][j] == e.getSource()) {
                    triggered= tiles[i][j].boom();
