@@ -13,9 +13,9 @@ public class Platform extends JPanel implements MouseListener {
     int bombI=0;
     int bombJ=0;
     Boolean triggered = false;
-    Platform(){
 
-        bomb.nextInt(0,63);
+    Platform(){
+        bomb.nextInt(0,rows*cols-1);
         setLayout(new GridLayout(rows,cols));
         setSize(400,400);
         for ( int i = 0; i < rows; i++) {
@@ -29,7 +29,7 @@ public class Platform extends JPanel implements MouseListener {
         createBomb();
     }
     void  createBomb(){
-        while (countBomb < 10) {
+        while (countBomb < 15) {
             {
                 bombI = bomb.nextInt(0, rows-1);
                 bombJ = bomb.nextInt(0, cols-1);
