@@ -24,32 +24,7 @@ JLabel title = new JLabel("Mine sweeper");
         add(south,BorderLayout.SOUTH);
         add(north,BorderLayout.NORTH);
         north.add(title);
-        title.addMouseListener(new MouseListener() {
-            @Override
-            public void mouseClicked(MouseEvent e) {
-                System.out.println("clicked on title");
-            }
-
-            @Override
-            public void mousePressed(MouseEvent e) {
-
-            }
-
-            @Override
-            public void mouseReleased(MouseEvent e) {
-
-            }
-
-            @Override
-            public void mouseEntered(MouseEvent e) {
-
-            }
-
-            @Override
-            public void mouseExited(MouseEvent e) {
-
-            }
-        });
+        title.setFont(new Font("Arial",Font.BOLD,35));
         add(platform,BorderLayout.CENTER);
         setVisible(true);
         setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
