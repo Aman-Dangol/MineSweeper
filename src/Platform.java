@@ -5,24 +5,25 @@ import java.awt.event.MouseListener;
 import java.util.Random;
 
 public class Platform extends JPanel implements MouseListener {
-    int rows =12;
-    int cols = 12;
+    int rows =20;
+    int cols = 20;
     Random bomb = new Random();
     Tiles[][] tiles = new Tiles[rows][cols];
     int countBomb=0;
-    int bombCount=0;
+    int bombCount=10;
     int bombI=0;
     int bombJ=0;
     Boolean triggered = false;
 
-    Platform(){
-        bombCount=30;
+    Platform(int r, int c , int b){
+        rows = r;
+        cols = c;
+        bombCount = b;
         setVisible(true);
         setLayout(new GridLayout(rows,cols));
         setSize(400,400);
         for ( int i = 0; i < rows; i++) {
             for (int j = 0; j < cols; j++) {
-
                 tiles[i][j] = new Tiles(i);
                 add(tiles[i][j]);
                 tiles[i][j].addMouseListener(this);

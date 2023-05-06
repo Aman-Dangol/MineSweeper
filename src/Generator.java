@@ -15,6 +15,7 @@ public class Generator extends JPanel implements ActionListener {
     JPanel row = new JPanel();
     JPanel col = new JPanel();
     JPanel bu = new JPanel();
+    int rows=0,cols=0,bombs=0;
     JButton generate = new JButton("generate ");
     Generator(){
         bomb.setMaximumSize(new Dimension(200,30));
@@ -45,6 +46,20 @@ public class Generator extends JPanel implements ActionListener {
 
     @Override
     public void actionPerformed(ActionEvent e) {
-        Window window = new Window();
+        try {
+            rows = Integer.parseInt(rowNum.getText());
+            cols = Integer.parseInt(colNum.getText());
+            bombs = Integer.parseInt(bombNum.getText());
+        }catch (Exception x){
+            System.out.println(x);
+        }
+            if (bombs==0 || bombs >= rows * cols){
+                System.out.println("incorrect values");
+            }
+            else {
+                Window window = new Window(rows,cols,bombs);
+            }
+
+
     }
 }

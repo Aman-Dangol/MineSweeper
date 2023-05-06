@@ -33,13 +33,12 @@ public class Menu extends JFrame implements ActionListener {
             if (e.getSource()==play){
                 Generator generator = new Generator();
                 panel.add(generator);
-                panel.remove(play);
+                panel.remove(playPanel);
+                panel.remove(exitPanel);
                 setVisible(true);
             }
             else if (e.getSource()==exit){
                 dispose();
             }
-
-
     }
 }
