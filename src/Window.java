@@ -32,7 +32,7 @@ JLabel title = new JLabel("Mine sweeper");
         title.setFont(new Font("Arial",Font.BOLD,35));
         add(platform,BorderLayout.CENTER);
         setVisible(true);
-        setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+        setDefaultCloseOperation(this.EXIT_ON_CLOSE);
     }
 
 }

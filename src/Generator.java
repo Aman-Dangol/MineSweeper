@@ -42,25 +42,33 @@ public class Generator extends JPanel implements ActionListener {
         bu.add(generate);
         panel.add(bu);
 
+
     }
 
     @Override
     public void actionPerformed(ActionEvent e) {
+        int validTiles=0;
         try {
-            rows = Integer.parseInt(rowNum.getText());
-            cols = Integer.parseInt(colNum.getText());
-            bombs = Integer.parseInt(bombNum.getText());
-        }catch (Exception x){
-            System.out.println("error");
-        }
-            if (bombs==0 || bombs >= rows * cols){
-                System.out.println("incorrect values");
+                rows = Integer.parseInt(rowNum.getText());
+                cols = Integer.parseInt(colNum.getText());
+                bombs = Integer.parseInt(bombNum.getText());
+
+             }catch (Exception x){
+                System.out.println("error");
             }
-            else {
-                System.out.println(rows);
-                System.out.println(cols);
-                System.out.println(bombs);
+        validTiles = rows * cols-1;
+        if (rows==0||  cols == 0) {
+            JOptionPane.showMessageDialog(this,"please insert a numerical value in row and col");
+
+        }
+         else  if (bombs==0 || bombs >= rows * cols){
+                JOptionPane.showMessageDialog(this,"please make sure the value of bombs is between 1 and "+validTiles);
+            }
+             else {
                 Window window = new Window(rows,cols,bombs);
+                JFrame frame = (JFrame) SwingUtilities.getWindowAncestor(Generator.this);
+                frame.dispose();
+
             }
 
 

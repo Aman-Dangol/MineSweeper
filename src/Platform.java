@@ -7,6 +7,9 @@ import java.util.Random;
 public class Platform extends JPanel implements MouseListener {
     int rows =10000;
     int cols = 10000;
+    int count = 0;
+    int winBox;
+
     Random bomb = new Random();
     Tiles[][] tiles = new Tiles[rows][cols];
     int countBomb=0;
@@ -19,6 +22,8 @@ public class Platform extends JPanel implements MouseListener {
         rows = r;
         cols = c;
         bombCount = b;
+        winBox = rows * cols - bombCount;
+        System.out.println("winbox= "+winBox);
         setVisible(true);
         setLayout(new GridLayout(rows,cols));
         setSize(400,400);
@@ -31,6 +36,11 @@ public class Platform extends JPanel implements MouseListener {
         }
         createBomb();
     }
+    void checkWin(){
+        if (count==winBox){
+            System.out.println("win!!");
+        }
+    }
     void  createBomb(){
         while (countBomb < bombCount)
         {
@@ -39,6 +49,7 @@ public class Platform extends JPanel implements MouseListener {
                 bombJ = bomb.nextInt(0, cols);
                 if (tiles[bombI][bombJ].isBomb()==false) {
                     tiles[bombI][bombJ].makeBomb();
+                    System.out.println(bombI+" "+bombJ);
                     countBomb++;
                 }
             }
@@ -52,7 +63,9 @@ public class Platform extends JPanel implements MouseListener {
                    triggered= tiles[i][j].boom();
                    if (triggered==true){
                        blastAll();
-
+                   }
+                   else {
+                       count++;
                    }
                 }
             }
