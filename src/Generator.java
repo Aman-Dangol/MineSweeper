@@ -51,12 +51,15 @@ public class Generator extends JPanel implements ActionListener {
             cols = Integer.parseInt(colNum.getText());
             bombs = Integer.parseInt(bombNum.getText());
         }catch (Exception x){
-            System.out.println(x);
+            System.out.println("error");
         }
             if (bombs==0 || bombs >= rows * cols){
                 System.out.println("incorrect values");
             }
             else {
+                System.out.println(rows);
+                System.out.println(cols);
+                System.out.println(bombs);
                 Window window = new Window(rows,cols,bombs);
             }
 

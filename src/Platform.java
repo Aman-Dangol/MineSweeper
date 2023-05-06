@@ -5,8 +5,8 @@ import java.awt.event.MouseListener;
 import java.util.Random;
 
 public class Platform extends JPanel implements MouseListener {
-    int rows =20;
-    int cols = 20;
+    int rows =10000;
+    int cols = 10000;
     Random bomb = new Random();
     Tiles[][] tiles = new Tiles[rows][cols];
     int countBomb=0;
