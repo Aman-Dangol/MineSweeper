@@ -50,7 +50,7 @@ public class Menu extends JFrame implements ActionListener, MouseListener {
 
     }
 
-    @Override
+    @OverrideSS
     public void mousePressed(MouseEvent e) {
         System.out.println("jojo");
     }
