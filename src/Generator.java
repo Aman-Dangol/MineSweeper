@@ -5,7 +5,7 @@ import java.awt.event.ActionListener;
 
 public class Generator extends JPanel implements ActionListener {
     JLabel r= new JLabel("row size");
-    JLabel c = new JLabel("col size");
+    JLabel c = new JLabel("column size");
     JLabel b = new JLabel("no of bombs");
     JTextField bombNum = new JTextField();
     JTextField rowNum = new JTextField();
@@ -41,8 +41,6 @@ public class Generator extends JPanel implements ActionListener {
         generate.setPreferredSize(new Dimension(95,20));
         bu.add(generate);
         panel.add(bu);
-
-
     }
 
     @Override

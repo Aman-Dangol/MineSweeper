@@ -49,8 +49,15 @@ public class Platform extends JPanel implements MouseListener {
                 bombJ = bomb.nextInt(0, cols);
                 if (tiles[bombI][bombJ].isBomb()==false) {
                     tiles[bombI][bombJ].makeBomb();
-                    System.out.println(bombI+" "+bombJ);
+//                    System.out.println(bombI+" "+bombJ);
                     countBomb++;
+                }
+            }
+        }
+        for (int i =0;i<rows;i++){
+            for (int j = 0; j < cols; j++) {
+                if (tiles[i][j].isBomb()==false){
+                    System.out.println(i+" "+j);
                 }
             }
         }
@@ -70,6 +77,7 @@ public class Platform extends JPanel implements MouseListener {
                 }
             }
         }
+        checkWin();
         }
         void blastAll(){
             for (int i = 0; i < rows; i++) {
@@ -79,6 +87,10 @@ public class Platform extends JPanel implements MouseListener {
                 }
 
             }
+            System.out.println("You lose !!");
+            Window frame = (Window) SwingUtilities.getWindowAncestor(Platform.this);
+
+            GameOver gg = new GameOver(frame);
         }
 
     @Override
@@ -99,5 +111,8 @@ public class Platform extends JPanel implements MouseListener {
     @Override
     public void mouseExited(MouseEvent e) {
 
+    }
+    void closeGame(){
+        JFrame frame = (JFrame) SwingUtilities.getWindowAncestor(Platform.this);
     }
 }

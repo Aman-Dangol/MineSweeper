@@ -10,10 +10,15 @@ public class Menu extends JFrame implements ActionListener, MouseListener {
     JPanel panel = new JPanel();
     JPanel playPanel = new JPanel();
     JPanel exitPanel = new JPanel();
+    JPanel header = new JPanel();
     JButton play = new JButton("play");
     JButton exit = new JButton("exit");
+    JLabel title = new JLabel("MINE SWEEPER");
     Menu(){
         setTitle("Mine Sweeper");
+        header.add(title);
+        header.setMaximumSize(new Dimension(300,80));
+        title.setFont(new Font("Times New Roman",Font.BOLD,30));
         panel.setLayout(new BoxLayout(panel,BoxLayout.Y_AXIS));
         playPanel.setMaximumSize(new Dimension(100,40));
         exitPanel.setMaximumSize(new Dimension(100,40));
@@ -26,6 +31,7 @@ public class Menu extends JFrame implements ActionListener, MouseListener {
         play.addMouseListener(this);
         exitPanel.add(exit);
         add(panel);
+        panel.add(header,BorderLayout.CENTER);
         panel.add(playPanel);
         panel.add(exitPanel);
         setVisible(true);
@@ -68,7 +74,6 @@ public class Menu extends JFrame implements ActionListener, MouseListener {
             exit.setBackground(Color.red);
         }
     }
-
     @Override
     public void mouseExited(MouseEvent e) {
                 play.setBackground(UIManager.getColor("Button.background"));
