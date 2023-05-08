@@ -34,6 +34,8 @@ public class GameOver extends JFrame implements ActionListener {
         if (e.getSource()==yes){
             System.out.println("from yes button");
             dispose();
+            Window game = new Window(window.r,window.c,window.b);
+            window.dispose();
 
         }
         if (e.getSource()==no){

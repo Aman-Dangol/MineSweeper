@@ -14,7 +14,7 @@ JPanel northCenter = new JPanel(null);
 JPanel northEast = new JPanel();
 JPanel test = new JPanel();
 JLabel title = new JLabel("Mine sweeper");
-JLabel score = new JLabel("valid boxes left   : 100");
+JLabel score = new JLabel();
     Window(int row , int col , int bomb){
         r = row;
         c= col;
@@ -22,6 +22,7 @@ JLabel score = new JLabel("valid boxes left   : 100");
         north.add(northCenter,BorderLayout.CENTER);
         north.add(northEast,BorderLayout.EAST);
         platform = new Platform(r,c,b);
+        updateScore();
         setTitle("Mine Sweeper");
         setSize(700,700);
         setLocationRelativeTo(null);
@@ -41,5 +42,8 @@ JLabel score = new JLabel("valid boxes left   : 100");
         add(platform,BorderLayout.CENTER);
         setVisible(true);
         setDefaultCloseOperation(this.EXIT_ON_CLOSE);
+    }
+    void updateScore(){
+        score.setText("valid boxes left   : "+platform.winBox);
     }
 }
