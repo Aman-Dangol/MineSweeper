@@ -39,8 +39,10 @@ public class Platform extends JPanel implements MouseListener {
         createBomb();
     }
     void checkWin(){
-        if (count==winBox){
-            System.out.println("win!!");
+        if (winBox==0){
+            System.out.println("winwin");
+            frame = (Window) SwingUtilities.getWindowAncestor(Platform.this);
+            WIN win = new WIN(frame);
         }
     }
     void  createBomb(){
@@ -81,9 +83,10 @@ public class Platform extends JPanel implements MouseListener {
                 }
             }
         }
+        checkWin();
         frame = (Window) SwingUtilities.getWindowAncestor(Platform.this);
         frame.updateScore();
-        checkWin();
+
         }
         void blastAll(){
             for (int i = 0; i < rows; i++) {

@@ -29,7 +29,9 @@ public class Menu extends JFrame implements ActionListener, MouseListener {
         setLocationRelativeTo(null);
         playPanel.add(play);
         play.addMouseListener(this);
+        play.setFocusable(false);
         exitPanel.add(exit);
+        exit.setFocusable(false);
         add(panel);
         panel.add(header,BorderLayout.CENTER);
         panel.add(playPanel);
