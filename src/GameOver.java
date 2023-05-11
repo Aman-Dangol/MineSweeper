@@ -26,7 +26,9 @@ public class GameOver extends JFrame implements ActionListener {
         no.addActionListener(this);
         south.add(no);
         setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+        setLocationRelativeTo(null);
         setVisible(true);
+
     }
 
     @Override
@@ -42,6 +44,7 @@ public class GameOver extends JFrame implements ActionListener {
             System.out.println("from no button");
             window.dispose();
             dispose();
+            setLocationRelativeTo(null);
             Menu menu = new Menu();
 
         }

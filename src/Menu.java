@@ -11,17 +11,22 @@ public class Menu extends JFrame implements ActionListener, MouseListener {
     JPanel playPanel = new JPanel();
     JPanel exitPanel = new JPanel();
     JPanel header = new JPanel();
-    JButton play = new JButton("play");
-    JButton exit = new JButton("exit");
+    JButton play = new JButton("PLAY");
+    JButton exit = new JButton("EXIT");
     JLabel title = new JLabel("MINE SWEEPER");
     Menu(){
+        setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+        play.setFont(new Font("Arial",Font.BOLD,20));
+        exit.setFont(new Font("Arial",Font.BOLD,20));
+        play.setPreferredSize(new Dimension(130,50));
+        exit.setPreferredSize(new Dimension(130,50));
         setTitle("Mine Sweeper");
         header.add(title);
         header.setMaximumSize(new Dimension(300,80));
         title.setFont(new Font("Times New Roman",Font.BOLD,30));
         panel.setLayout(new BoxLayout(panel,BoxLayout.Y_AXIS));
-        playPanel.setMaximumSize(new Dimension(100,40));
-        exitPanel.setMaximumSize(new Dimension(100,40));
+        playPanel.setMaximumSize(new Dimension(150,60));
+        exitPanel.setMaximumSize(new Dimension(150,60));
         play.addActionListener(this);
         exit.addActionListener(this);
         exit.addMouseListener(this);
