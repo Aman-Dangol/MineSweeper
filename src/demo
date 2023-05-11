@@ -1,0 +1,3 @@
+-this game has auto generated tiles ie(rows & column) as per user declare or inputed
+swing,awt,ActionEvent,ActionListener,MouseEvent,MouseListener
+

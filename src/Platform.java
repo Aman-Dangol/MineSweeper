@@ -45,6 +45,8 @@ public class Platform extends JPanel implements MouseListener {
             WIN win = new WIN(frame);
         }
     }
+
+    //Bomb Creations
     void  createBomb(){
         while (countBomb < bombCount)
         {
@@ -66,6 +68,23 @@ public class Platform extends JPanel implements MouseListener {
             }
         }
     }
+
+//    private void Mines() {
+//        Random rand = new Random();
+//
+//        int minesPlaced = 0;
+//        while (mines < NUM_MINES) {
+//            int row = rand.nextInt(BOARD_SIZE);
+//            int col = rand.nextInt(BOARD_SIZE);
+//
+//            if (mineBoard[row][col] != MINE_CELL) {
+//                mineBoard[row][col] = MINE_CELL;
+//                mines++;
+//            }
+//        }
+//    }
+
+    //response buttons
     @Override
     public void mouseClicked(MouseEvent e) {
         for (int i=0;i<rows;i++){

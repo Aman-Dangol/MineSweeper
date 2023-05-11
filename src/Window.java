@@ -14,6 +14,10 @@ JPanel northCenter = new JPanel(null);
 JPanel northEast = new JPanel();
 JPanel test = new JPanel();
 JLabel title = new JLabel("Mine sweeper");
+
+//BackGround image
+//imagse = new ImageIcon(getClass().getResource("/game/image/background.jpeg")).getImage();
+//g2.drawImage(imagse,0,0,null);
 JLabel score = new JLabel();
     Window(int row , int col , int bomb){
         r = row;
@@ -38,6 +42,8 @@ JLabel score = new JLabel();
         northCenter.add(title);
         title.setBounds(230,0,500,60);
         northEast.add(score);
+
+        //Font design
         title.setFont(new Font("Arial",Font.BOLD,35));
         add(platform,BorderLayout.CENTER);
         setVisible(true);
