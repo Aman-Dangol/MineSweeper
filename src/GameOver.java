@@ -12,13 +12,14 @@ public class GameOver extends JFrame implements ActionListener {
     JPanel south = new JPanel();
     JLabel message = new JLabel("would you like to restart again ?");
     Window window;
-    GameOver(Window x){
-        window=x;
-        setSize(600,100);
-        add(center,BorderLayout.CENTER);
+
+    GameOver(Window x) {
+        window = x;
+        setSize(600, 100);
+        add(center, BorderLayout.CENTER);
         setResizable(false);
         center.add(message);
-        add(south,BorderLayout.SOUTH);
+        add(south, BorderLayout.SOUTH);
         yes.setFocusable(false);
         yes.addActionListener(this);
         south.add(yes);
@@ -33,14 +34,14 @@ public class GameOver extends JFrame implements ActionListener {
 
     @Override
     public void actionPerformed(ActionEvent e) {
-        if (e.getSource()==yes){
+        if (e.getSource() == yes) {
             System.out.println("from yes button");
             dispose();
-            Window game = new Window(window.r,window.c,window.b);
+            Window game = new Window(window.r, window.c, window.b);
             window.dispose();
 
         }
-        if (e.getSource()==no){
+        if (e.getSource() == no) {
             System.out.println("from no button");
             window.dispose();
             dispose();
